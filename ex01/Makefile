@@ -1,0 +1,36 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/03 16:23:56 by mstrauss          #+#    #+#              #
+#    Updated: 2025/04/03 16:40:04 by mstrauss         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = span
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17
+SRCS = main.cpp
+INC = span.hpp
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp $(INC)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+re: fclean all
+
+clean:
+	rm -f $(OBJS)
+
+fclean:
+	rm -f $(OBJS) $(NAME)
+
+.phony: all re clean fclean
