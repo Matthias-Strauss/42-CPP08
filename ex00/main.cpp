@@ -6,7 +6,7 @@
 /*   By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:24:14 by mstrauss          #+#    #+#             */
-/*   Updated: 2025/04/05 13:06:55 by mstrauss         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:12:12 by mstrauss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int main(void) {
   lst.push_back(25);
 
   try {
-    std::cout << "Vector: Finding 20: " << easyfind(vec, 20) << std::endl;
+    std::vector<int>::iterator i = easyfind(vec, 20);
+    std::cout << "Vector: Finding 20: " << &*i << std::endl;
     std::cout << "Vector: Finding 5: ";
     easyfind(vec, 5);
   } catch (const std::exception &e) {
@@ -34,7 +35,8 @@ int main(void) {
   }
 
   try {
-    std::cout << "List: Finding 15: " << easyfind(lst, 15) << std::endl;
+    std::list<int>::iterator i = easyfind(lst, 15);
+    std::cout << "List: Finding 15: " << &*i << std::endl;
     std::cout << "List: Finding 30: ";
     easyfind(lst, 30);
   } catch (const std::exception &e) {
