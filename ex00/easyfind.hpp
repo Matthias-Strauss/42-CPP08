@@ -6,7 +6,7 @@
 /*   By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:25:43 by mstrauss          #+#    #+#             */
-/*   Updated: 2025/04/05 12:55:20 by mstrauss         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:08:02 by mstrauss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <stdexcept>
 
-template <typename T> int easyfind(T &container, int value);
+template <typename T> typename T::iterator easyfind(T &container, int value);
 
 #include "easyfind.tpp"
 #endif
