@@ -1,15 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 16:24:14 by mstrauss          #+#    #+#             */
-/*   Updated: 2025/04/05 14:17:11 by mstrauss         ###   ########.fr       */
+/*   Created: 2025/04/05 14:15:47 by mstrauss          #+#    #+#             */
+/*   Updated: 2025/04/05 14:27:30 by mstrauss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-int main(void) {}
+Span::Span() {}
+
+Span::Span(unsigned int N) {}
+
+Span::Span(const Span &other) {}
+
+Span::~Span() {}
+
+unsigned int Span::size() const { return _size; }
+
+void Span::addNumber() {}
+void Span::shortestSpan() {}
+void Span::longestSpan() {}
