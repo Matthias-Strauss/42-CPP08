@@ -6,7 +6,7 @@
 /*   By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 14:15:49 by mstrauss          #+#    #+#             */
-/*   Updated: 2025/04/08 13:03:07 by mstrauss         ###   ########.fr       */
+/*   Updated: 2025/04/08 13:18:09 by mstrauss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
   Span &operator=(const Span &other);
 
   unsigned int size() const;
+  unsigned int count() const;
 
   void addNumber();
   void shortestSpan();
@@ -41,7 +42,7 @@ public:
     iterator(int *ptr) : _ptr(ptr) {}
 
     int &operator*() const { return *_ptr; }
-    int *operator->() const { return _ptr; } // Member access operator
+    int *operator->() const { return _ptr; }
 
     iterator &operator++() {
       ++_ptr;
