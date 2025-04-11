@@ -6,7 +6,7 @@
 /*   By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:41:04 by mstrauss          #+#    #+#             */
-/*   Updated: 2025/04/11 15:15:10 by mstrauss         ###   ########.fr       */
+/*   Updated: 2025/04/11 15:22:09 by mstrauss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ public:
   iterator end();
 };
 
-#include "MutantStack.tpp";
+#include "MutantStack.tpp"
 #endif
