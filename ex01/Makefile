@@ -6,15 +6,16 @@
 #    By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:23:56 by mstrauss          #+#    #+#              #
-#    Updated: 2025/04/03 16:40:04 by mstrauss         ###   ########.fr        #
+#    Updated: 2025/04/08 14:01:47 by mstrauss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
-SRCS = main.cpp
-INC = span.hpp
+SRCS = main.cpp \
+		Span.cpp
+INC = Span.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
