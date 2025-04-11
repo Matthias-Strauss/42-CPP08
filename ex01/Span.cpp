@@ -6,7 +6,7 @@
 /*   By: mstrauss <mstrauss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 14:15:47 by mstrauss          #+#    #+#             */
-/*   Updated: 2025/04/08 13:32:08 by mstrauss         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:59:12 by mstrauss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,50 @@
 #include <limits>
 #include <numeric>
 
-Span::Span() : _size(0) {}
+Span::Span() : _arr(nullptr), _size(0), _amount(0) {}
 
-Span::Span(unsigned int N) : _arr(N), _size(N) {}
+Span::Span(unsigned int N) : _size(N), _amount(0) { _arr = new int[_size]; }
 
-Span::Span(const Span &other) : _arr(other._arr), _size(other._size) {}
+Span::Span(const Span &other) : _size(other._size), _amount(other._amount) {
+  _arr = new int[_size];
+  for (unsigned int i = 0; i < _amount; ++i) {
+    _arr[i] = other._arr[i];
+  }
+}
 
-Span::~Span() {}
+Span::~Span() { delete[] _arr; }
 
 Span &Span::operator=(const Span &other) {
   if (this != &other) {
-    _arr = other._arr;
+    delete[] _arr;
     _size = other._size;
+    _amount = other._amount;
+    _arr = new int[_size];
+    for (unsigned int i = 0; i < _amount; ++i) {
+      _arr[i] = other._arr[i];
+    }
   }
   return *this;
 }
 
 unsigned int Span::size() const { return _size; }
 
-unsigned int Span::count() const { return _arr.size(); }
+unsigned int Span::count() const { return _amount; }
 
 void Span::addNumber(int num) {
-  if (_arr.size() == _size) {
+  if (_amount == _size) {
     throw std::runtime_error("Span is full");
   }
-  _arr.push_back(num);
+  _arr[_amount] = num;
+  _amount++;
 }
 
 void Span::shortestSpan() const {
-  if (_arr.size() < 2) {
+  if (_amount < 2) {
     throw std::runtime_error("Insufficient amount of numbers to find a span");
   }
 
-  std::vector<int> sortedArr = _arr;
+  std::vector<int> sortedArr(_arr, _arr + _amount);
   std::sort(sortedArr.begin(), sortedArr.end());
 
   int minSpan = std::numeric_limits<int>::max();
@@ -60,10 +71,10 @@ void Span::shortestSpan() const {
 }
 
 void Span::longestSpan() const {
-  if (_arr.size() < 2) {
+  if (_amount < 2) {
     throw std::runtime_error("Insufficient amount of numbers to find a span");
   }
-  std::vector<int> sortedArr = _arr;
+  std::vector<int> sortedArr(_arr, _arr + _amount);
   std::sort(sortedArr.begin(), sortedArr.end());
 
   int maxSpan = sortedArr.back() - sortedArr.front();
